@@ -1,0 +1,171 @@
+/* ------------------------
+   CSS completo actualizado
+   Footer fijo siempre abajo
+   ------------------------ */
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Arial, Helvetica, sans-serif;
+}
+
+/* Variable para la altura del footer (ajústala si quieres) */
+:root{
+  --footer-height: 3.5rem; /* ≈ 63px con font-size:18px */
+}
+
+html{
+  font-size:18px; /* Base estable para evitar que se encoja todo */
+}
+
+body{
+  background:#f3f3f3;
+  /* Espacio inferior para que el contenido no quede oculto tras el footer fijo */
+  padding-bottom: var(--footer-height);
+}
+
+/* Header centrado y tamaño estable */
+header{
+  background:#2bceff;
+  color:white;
+  padding:1rem 3rem; /* rem para estabilidad en zoom */
+  display:flex;
+  justify-content:center; /* centrado del menú */
+  align-items:center;
+  box-shadow:0 4px 12px rgba(0,0,0,0.1);
+  font-size:1rem;
+}
+
+/* Menú */
+nav ul{
+  list-style:none;
+  display:flex;
+  gap:25px;
+}
+
+nav a{
+  color:white;
+  text-decoration:none;
+  font-weight:bold;
+  padding:6px 12px;
+  border-radius:8px;
+  transition:0.3s ease;
+}
+
+nav a:hover{
+  background:white;
+  color:#2b4cff !important;
+  transform:translateY(-2px);
+}
+
+nav a.active{
+  background:#ffdf00;
+  color:#2b4cff !important;
+}
+
+/* Hero */
+.hero{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  padding:40px 10px;
+  background:white;
+}
+
+.hero h1{
+  font-size:2rem;
+  margin-bottom:10px;
+}
+
+.hero img{
+  width: 400px;
+}
+
+.hero p{
+  max-width:500px;
+  margin-bottom:20px;
+}
+
+.btn{
+  padding:10px 20px;
+  background:#0099ff;
+  color:white;
+  border:none;
+  border-radius:5px;
+  cursor:pointer;
+}
+
+/* Cards */
+.cards{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:20px;
+  padding:30px;
+}
+
+.card{
+  background:white;
+  padding:20px;
+  width:280px;
+  border-radius:8px;
+  text-align:center;
+  box-shadow:0 0 10px rgba(0,0,0,0.1);
+  opacity: 0; 
+  animation: fadeIn 2s ease forwards;
+}
+
+.card img{
+  width:100%;
+  border-radius:8px;
+  margin-bottom:10px;
+}
+
+/* Footer: fijado en la parte inferior de la ventana */
+footer{
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: var(--footer-height);
+  padding: 0.8rem 1rem; /* padding interior; no afecta su posición */
+  background:#000000;
+  color:white;
+  text-align:center;
+  box-sizing: border-box;
+  z-index: 9999; /* por encima del resto */
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:1rem;
+  box-shadow: 0 -4px 12px rgba(0,0,0,0.15);
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+.animate{ animation: fadeIn 1s ease forwards; }
+
+header, .hero, .cards, footer{ animation: fadeIn 0s ease forwards; }
+.hero{ animation-delay: 0.5s; }
+.cards{ animation-delay: 1.0s; }
+footer{ animation-delay: 1.5s; }
+
+.card:nth-child(1){ animation-delay: 0.4s; }
+.card:nth-child(2){ animation-delay: 0.8s; }
+.card:nth-child(3){ animation-delay: 1.2s; }
+
+/* Links */
+a{ color:#000000; text-decoration:none; }
+a:hover{ color:#ff2b2b; }
+a:visited{ color:#000000; }
+
+.card:hover h3 a,
+.card:hover{ color:#ff2b2b; }
+.card:hover{ color:#000000; }
